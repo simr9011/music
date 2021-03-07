@@ -1,0 +1,22 @@
+{%extends 'music/master1.html'%}
+{%block tite%}
+Addalbum
+{%endblock%}
+{%block body%}
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="table_responsive">
+        <table>
+            {% for j in form%}
+             <tr>
+                 <td>{{j.label_tag}}</td>
+                 <td>{{j}}</td>
+                 <td>{{j.help_text}}</td>
+                 <td>{{j.errors}}</td>
+             </tr>
+            {%endfor%}
+        </table>
+        <input type="submit" value="addalbum">
+    </div>
+</form>
+{%endblock%}
